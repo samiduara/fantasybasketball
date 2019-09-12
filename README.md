@@ -12,7 +12,7 @@
 ###### Scrum master, GitHub manager, Documenter, API manager
 
 
-##### Resources
+#### Resources
 ###### 1. [Trello Board](https://trello.com/b/UGYE7yuI/project-3-team-bravo)
 ###### 2. [ERD](https://www.lucidchart.com/invitations/accept/4a01f176-f3ce-4bd1-acdb-ff557b4c46c5)
 ###### 3. [Ball Dont Lie API](https://www.balldontlie.io/#introduction)
