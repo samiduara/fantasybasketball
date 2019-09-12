@@ -4,12 +4,9 @@
 ##### We want to create quick and easy fantasy basketball alternative, that focuses on ease of use and a short timeline from account creation to an excellent fantasy basketball experience.
 
 ## Meet Team Bravo
-#### Armando
-###### Front-end Developer
-#### Sam
-###### Database Manager
-#### Cole
-###### Scrum master, GitHub manager, Documenter, API manager
+#### Armando ###### Front-end Developer
+#### Sam ###### Database Manager
+#### Cole ###### Scrum master, GitHub manager, Documenter, API manager
 
 
 ## Resources
