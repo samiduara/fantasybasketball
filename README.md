@@ -19,4 +19,5 @@
 ###### 4. [Project 3 Prompt](https://git.generalassemb.ly/SEI-CC/SEI-CC-4/blob/master/projects/project-3/project-3.md)
 ###### 5. [Font](https://fonts.google.com/specimen/Titillium+Web)
 ###### 6. [Color Pallete](https://coolors.co/050505-6ccff6-ff3366-1b9aaa-20fc8f)
+###### 7. [Wireframes](https://docs.google.com/presentation/d/1aIE_aYCZm6bQq8WsAL1Q_ljH-kbYXWvLbLfGyW5A1DY/edit?usp=sharing)
 
