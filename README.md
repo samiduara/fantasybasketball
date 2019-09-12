@@ -1,4 +1,4 @@
-# fantasybasketball
+# Fantasy Basketball App
 
 ## Our Goal
 ##### We want to create quick and easy fantasy basketball alternative, that focuses on ease of use and a short timeline from account creation to an excellent fantasy basketball experience.
