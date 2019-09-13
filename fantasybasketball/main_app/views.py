@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-
+from . models import Profile
 # Create your views here.
 
-def dashboard(request):
-    return render(request, 'dashboard.html')
+def home(request):
+    return render(request, 'home.html')
