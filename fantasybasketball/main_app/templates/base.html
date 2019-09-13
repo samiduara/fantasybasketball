@@ -15,6 +15,22 @@
     <script src="semantic/dist/semantic.min.js"></script>
 </head>
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href='/'>Fantasy Football</a></li>
+            </ul>
+            <ul>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                    <li><a href="{% url 'logout' %}"></a></li>
+                {% else %}
+                    <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                    <li><a href="{% url 'login' %}">Log In</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
     <main>
         {% block content %}
         {% endblock %}
