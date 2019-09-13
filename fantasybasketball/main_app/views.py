@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from . models import Profile
+from .models import Profile
 # Create your views here.
 
 def home(request):
@@ -14,7 +14,7 @@ def dashboard(request):
 
 def signup(request):
     error_message=''
-    if request.method == 'POST'
+    if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
