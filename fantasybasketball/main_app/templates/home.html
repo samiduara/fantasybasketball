@@ -3,23 +3,24 @@
 {% block content %}
 
 <h1>Home Page</h1>
-
-<div id='cube' class='ui shape'>
+<div class='ui centered grid'>
+    <div id='container' class='ui container'>
+<div class='ui shape'>
     <div class='sides'>
 
         <div class='active side'>
-            <div class='ui move up reveal card'>
+            <div class='ui move up reveal card' id='a'>
                 <div class='visible content image'>
                     <img src='static/images/kevin.jpg' class='ui small image'>
                 </div>
                 <div class='hidden content'>
-                    <p class='ui small image'>This is Kevin's profile</p>
+                    <p>This is Kevin's profile</p>
                 </div>
             </div>
         </div>
 
         <div class='side'>
-            <div class='ui move up reveal card'>
+            <div class='ui move up reveal card' id='a'>
                 <div class='visible content image'>
                     <img src='static/images/damian.jpg' class='ui small image'>
                 </div>
@@ -31,7 +32,7 @@
 
     
         <div class='side'>
-            <div class='ui move up reveal card'>
+            <div class='ui move up reveal card' id='a'>
                 <div class='visible content image'>
                     <img src='static/images/giannis.jpg' class='ui small image'>
                 </div>
@@ -42,7 +43,7 @@
         </div>
     
         <div class='side'>
-            <div class='ui move up reveal card'>
+            <div class='ui move up reveal card' id='a'>
                 <div class='visible content image'>
                     <img src='static/images/james.jpg' class='ui small image'>
                 </div>
@@ -53,7 +54,7 @@
         </div>
     
         <div class='side'>
-            <div class='ui move up reveal card'>
+            <div class='ui move up reveal card' id='a'>
                 <div class='visible content image'>
                     <img src='static/images/joel.jpg' class='ui small image'>
                 </div>
@@ -64,7 +65,7 @@
         </div>
     
         <div class='side'>
-            <div class='ui move up reveal card'>
+            <div class='ui move up reveal card' id='a'>
                 <div class='visible content image'>
                     <img src='static/images/kawhi.jpg' class='ui small image'>
                 </div>
@@ -75,7 +76,7 @@
         </div>
     
         <div class='side'>
-            <div class='ui move up reveal card'>
+            <div class='ui move up reveal card' id='a'>
                 <div class='visible content image'>
                     <img src='static/images/LeBronJames.jpg' class='ui small image'>
                 </div>
@@ -86,7 +87,7 @@
         </div>
 
         <div class='side'>
-            <div class='ui move up reveal card'>
+            <div class='ui move up reveal card' id='a'>
                 <div class='visible content image'>
                     <img src='static/images/nikola.jpg' class='ui small image'>
                 </div>
@@ -97,7 +98,7 @@
         </div>
 
         <div class='side'>
-            <div class='ui move up reveal card'>
+            <div class='ui move up reveal card' id='a'>
                 <div class='visible content image'>
                     <img src='static/images/paul.jpg' class='ui small image'>
                 </div>
@@ -108,7 +109,7 @@
         </div>
 
         <div class='side'>
-            <div class='ui move up reveal card'>
+            <div class='ui move up reveal card' id='a'>
                 <div class='visible content image'>
                     <img src='static/images/stephen.jpg' class='ui small image'>
                 </div>
@@ -118,9 +119,10 @@
             </div>
         </div>
     </div>
+    <div class='ui teal button' id='flip'>Flip</div>
 </div>
-<div class='ui teal button' id='flip'>Flip</div>
-
+    </div>
+</div>
 <script>
     $('#flip').click(function(){
         $('.shape').shape('flip right');
