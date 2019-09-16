@@ -2,16 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
 
-class Team(models.Model):
-  roster = models.ForeignKey(Player)
-  team_name=models.CharField(max_length=50)
-  team_points=models.IntegerField()
-  team_rebounds=models.IntegerField()
-  team_assists=models.IntegerField()
-  team_steals=models.IntegerField()
-  team_blocks=models.IntegerField()
-  team_turnovers=models.IntegerField()
-  team_threepointers=models.IntegerField()
 
 
 class Player(models.Model):
@@ -27,11 +17,21 @@ class Player(models.Model):
   threepointer_rating=models.IntegerField()
   status=models.BooleanField() #True means player available / False Player is taken
   
+class Team(models.Model):
+  roster = models.ForeignKey(Player, on_delete=models.CASCADE)
+  team_name=models.CharField(max_length=50)
+  team_points=models.IntegerField()
+  team_rebounds=models.IntegerField()
+  team_assists=models.IntegerField()
+  team_steals=models.IntegerField()
+  team_blocks=models.IntegerField()
+  team_turnovers=models.IntegerField()
+  team_threepointers=models.IntegerField()
 
 class Profile(models.Model):
   user=models.OneToOneField(User, on_delete=models.CASCADE)
   user_name=models.CharField(max_length=100)
-  team=models.ForeignKey(Team)
+  team=models.ForeignKey(Team, on_delete=models.CASCADE)
   points=models.TextField(max_length=250)
   rank=models.IntegerField()
   wins=models.IntegerField()
