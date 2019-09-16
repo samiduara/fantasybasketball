@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Team Detail</h1>
+<form class='ui form' action="{% url 'add_team' %}" method='post'>
+        {% csrf_token %}
+        <table>
+            <tbody>
+                {{team_form.as_table}}
+            </tbody>
+        </table>
+        <input type='submit' value='Enter' class='ui button'>
+    </form> 
+{% endblock %}
