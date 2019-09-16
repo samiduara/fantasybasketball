@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import Profile, Player
+from .models import Profile, Player, Team 
 # Create your views here.
 
 def home(request):
@@ -15,8 +15,9 @@ def dashboard(request):
     return render(request, 'dashboard.html')
 
 class DreamCreate(CreateView):
-    model = Player
-    fields = '__all__'
+    model = Team 
+    fields = ['team_name']
+    modelTwo = Profile
 
 def signup(request):
     error_message=''
