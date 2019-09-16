@@ -6,10 +6,11 @@
 {% if error_message %}
     <p>{{ error_message }}</p>
 {% endif %}
-
-<form method='post' action="{% url 'signup' %}">
+<div class='ui container'>
+<form class='ui big form' method='post' action="{% url 'signup' %}">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type='submit' class='ui button' value='signup'>
+    <input type='submit' class='ui button' value='Sign Up'>
 </form>
+</div>
 {% endblock %}
