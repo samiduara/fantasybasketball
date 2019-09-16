@@ -10,14 +10,22 @@ from .models import Profile, Player, Team
 
 def home(request):
     return render(request, 'home.html')
+
+# def team_detail(request):
+#     return render(request, 'dashboard/detail.html')
+    
 @login_required
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    return render(request, 'dashboard/dashboard.html')
 
 class DreamCreate(CreateView):
     model = Team 
     fields = ['team_name']
     modelTwo = Profile
+
+class DreamUpdate(UpdateView):
+    model = Team
+    fields='__all__'
 
 def signup(request):
     error_message=''
@@ -25,6 +33,9 @@ def signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
+            model = Profile.objects.create()
+            model.user=user
+            model.save()
             login(request, user)
             return redirect('dashboard')
         else:
