@@ -39,7 +39,7 @@ class Profile(models.Model):
   wins=models.IntegerField(null=True)
   losses=models.IntegerField(null=True)
 
-  def get_absolute_url(self):
-    return reverse('team_detail', kwargs={'team_id':self.id})
+
+    
 
   

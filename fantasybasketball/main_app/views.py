@@ -4,24 +4,42 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from .forms import TeamForm
 from .models import Profile, Player, Team 
 # Create your views here.
 
 def home(request):
     return render(request, 'home.html')
 
-# def team_detail(request):
-#     return render(request, 'dashboard/detail.html')
+def detail(request):
+    return render(request, 'dashboard/team_detail.html')
     
 @login_required
 def dashboard(request):
     return render(request, 'dashboard/dashboard.html')
 
-class DreamCreate(CreateView):
-    model = Team 
-    fields = ['team_name']
-    modelTwo = Profile
+def create_team(request):
+    team_form = TeamForm()
+    return render(request, 'dashboard/team_detail.html',{
+        'team_form':team_form,
+    })
+
+def add_team(request):
+    form = TeamForm(request.POST)
+    if form.is_valid():
+        new_team=form.save(commit=False)
+        model2 = Profile.objects.get(user_id=request.user.id)
+        model2.team = new_team.id
+
+        new_team.save()
+        model2.save()
+        print("ypoooooooooooooxxxxxxxxxxxxxo", model2)
+
+    return redirect('detail')
+        
+    # model = Team 
+    # fields = ['team_name']
+        
 
 class DreamUpdate(UpdateView):
     model = Team
