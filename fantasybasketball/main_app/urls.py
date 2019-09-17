@@ -7,7 +7,5 @@ urlpatterns = [
   path('accounts/signup/', views.signup, name='signup'),
   path('dashboard/create/', views.create_team, name='create_team'),
   path('dashboard/add_team/', views.add_team, name='add_team'),
-  path('dashboard/detail/', views.detail, name='detail'),
-#   path('dashboard/<int:pk>/update/', views.DreamUpdate.as_view(), name='updateteam'),
 ]
 
