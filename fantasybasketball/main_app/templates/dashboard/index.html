@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Welcome to Your Dream Team!</h1>
+    {% for team in team %}
+    <div>
+            <div>
+                <span>{{ team.team_name }}</span>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

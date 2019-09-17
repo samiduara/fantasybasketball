@@ -30,15 +30,9 @@ class Team(models.Model):
   team_blocks=models.IntegerField(null=True)
   team_turnovers=models.IntegerField(null=True)
   team_threepointers=models.IntegerField(null=True)
-
-""" class Profile(models.Model):
-  user=models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-  user_name=models.CharField(max_length=100, null=True)
-  team=models.ForeignKey(Team, on_delete=models.CASCADE, null=True)
-  points=models.TextField(max_length=250, null=True)
+  owner_points=models.TextField(max_length=250, null=True)
   rank=models.IntegerField(null=True)
-  wins=models.IntegerField(null=True)
-  losses=models.IntegerField(null=True) """
+
 
 
     
