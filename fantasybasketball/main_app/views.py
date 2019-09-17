@@ -4,19 +4,29 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-
-from .models import Profile, Player
-# Create your views here.
+from .forms import TeamForm
+from .models import Player, Team 
 
 def home(request):
     return render(request, 'home.html')
+
 @login_required
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    return render(request, 'dashboard/dashboard.html')
 
-class DreamCreate(CreateView):
-    model = Player
-    fields = '__all__'
+def create_team(request):
+    team_form = TeamForm()
+    return render(request, 'dashboard/team_form.html',{
+        'team_form':team_form,
+    })
+
+def add_team(request):
+    form = TeamForm(request.POST)
+    if form.is_valid():
+        new_team=form.save(commit=False)
+        new_team.owner = request.user
+        new_team.save()
+    return redirect('dashboard')
 
 def signup(request):
     error_message=''
@@ -31,3 +41,4 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message':error_message}
     return render(request, 'registration/signup.html', context)
+
