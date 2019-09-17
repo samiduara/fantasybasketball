@@ -11,39 +11,45 @@ from .models import Profile, Player, Team
 def home(request):
     return render(request, 'home.html')
 
-def detail(request):
-    return render(request, 'dashboard/team_detail.html')
-    
 @login_required
 def dashboard(request):
     return render(request, 'dashboard/dashboard.html')
 
-def create_team(request):
-    team_form = TeamForm()
-    return render(request, 'dashboard/team_detail.html',{
-        'team_form':team_form,
-    })
+class TeamCreate(CreateView):
+    model = Team
+    fields = ['team_name']
+    success_url='/dashboard/team_detail/'
 
-def add_team(request):
-    form = TeamForm(request.POST)
-    if form.is_valid():
-        new_team=form.save(commit=False)
-        model2 = Profile.objects.get(user_id=request.user.id)
-        model2.team = new_team.id
+def team_index(request):
+    return render(request, 'dashboard/index.html')
+    
+def team_detail(request):
+    team = Team.objects.all()
+    return render(request, 'dashboard/team_detail.html', {'team':team} )
+# def create_team(request):
+#     team_form = TeamForm()
+#     return render(request, 'dashboard/team_detail.html',{
+#         'team_form':team_form,
+#     })
 
-        new_team.save()
-        model2.save()
-        print("ypoooooooooooooxxxxxxxxxxxxxo", model2)
-
-    return redirect('detail')
+# def add_team(request):
+#     form = TeamForm(request.POST)
+#     if form.is_valid():
+#         new_team=form.save(commit=False)
+#         model2 = Profile.objects.get(user_id=request.user.id)
+#         model2.team = new_team.id
+#         new_team.save()
+#         model2.save()
+#         print("ypoooooooooooooxxxxxxxxxxxxxo", model2)
+#     return redirect('detail')
         
     # model = Team 
     # fields = ['team_name']
         
 
-class DreamUpdate(UpdateView):
-    model = Team
-    fields='__all__'
+# class DreamUpdate(UpdateView):
+#     model = Team
+#     fields='__all__'
 
 def signup(request):
     error_message=''
@@ -61,3 +67,4 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message':error_message}
     return render(request, 'registration/signup.html', context)
+

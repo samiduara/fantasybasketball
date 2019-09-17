@@ -30,6 +30,9 @@ class Team(models.Model):
   team_turnovers=models.IntegerField(null=True)
   team_threepointers=models.IntegerField(null=True)
 
+  def get_absolute_url(self):
+    return reverse('team_detail', kwargs={'team_id':self.id})
+
 class Profile(models.Model):
   user=models.OneToOneField(User, on_delete=models.CASCADE, null=True)
   user_name=models.CharField(max_length=100, null=True)
