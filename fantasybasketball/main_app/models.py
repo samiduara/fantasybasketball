@@ -21,6 +21,7 @@ class Player(models.Model):
   
 class Team(models.Model):
   roster = models.ForeignKey(Player, on_delete=models.CASCADE, null=True)
+  owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
   team_name=models.CharField(max_length=50,null=True)
   team_points=models.IntegerField(null=True)
   team_rebounds=models.IntegerField(null=True)
@@ -29,18 +30,9 @@ class Team(models.Model):
   team_blocks=models.IntegerField(null=True)
   team_turnovers=models.IntegerField(null=True)
   team_threepointers=models.IntegerField(null=True)
-
-  def get_absolute_url(self):
-    return reverse('team_detail', kwargs={'team_id':self.id})
-
-class Profile(models.Model):
-  user=models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-  user_name=models.CharField(max_length=100, null=True)
-  team=models.ForeignKey(Team, on_delete=models.CASCADE, null=True)
-  points=models.TextField(max_length=250, null=True)
+  owner_points=models.TextField(max_length=250, null=True)
   rank=models.IntegerField(null=True)
-  wins=models.IntegerField(null=True)
-  losses=models.IntegerField(null=True)
+
 
 
     
